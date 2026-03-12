@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TABL | DEV_TERMINAL</title>
+    <title>TABL | Developer Portfolio</title>
     <style>
         /* Default Aggressive Neon Theme */
         :root {
-            --bg-base: #030303;
+            --bg-base: #050505;
             --bg-panel: #0a0a0a;
             --text-heading: #ffffff;
             --text-main: #d4d4d4;
-            --text-muted: #666666;
+            --text-muted: #888888;
             --accent-red: #ff003c;
             --accent-dark: #660018;
             --border-color: #ff003c;
-            --glow: 0 0 10px var(--accent-red), inset 0 0 20px var(--accent-dark);
-            --nav-bg: rgba(3, 3, 3, 0.95);
+            --glow: 0 0 10px rgba(255, 0, 60, 0.2), inset 0 0 20px rgba(102, 0, 24, 0.1);
+            --nav-bg: rgba(5, 5, 5, 0.95);
         }
 
         /* Brutalist Light Mode */
@@ -36,6 +36,8 @@
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background-color: var(--bg-base); 
+            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
             color: var(--text-main); 
             line-height: 1.6; 
             margin: 0; 
@@ -44,17 +46,19 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Terminal/Tech Headers */
+        body.light-mode {
+            background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+        }
+
         h1, h2, h3, .brand, .dropbtn { 
             font-family: 'Courier New', Courier, monospace; 
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             color: var(--text-heading); 
             margin-top: 0;
             transition: color 0.3s;
         }
 
-        /* Dropdown Navigation */
         nav {
             position: sticky;
             top: 0;
@@ -62,7 +66,7 @@
             border-bottom: 2px solid var(--accent-red);
             z-index: 1000;
             padding: 1rem 0;
-            box-shadow: var(--glow);
+            backdrop-filter: blur(5px);
             transition: background 0.3s, box-shadow 0.3s;
         }
         .nav-container {
@@ -76,16 +80,16 @@
         .brand {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--accent-red);
-            text-shadow: 1px 1px 0px var(--border-color);
+            color: var(--text-heading);
+            letter-spacing: 3px;
         }
+        .brand span { color: var(--accent-red); }
 
-        /* Dropdown CSS */
         .dropdown { position: relative; display: inline-block; }
         .dropbtn {
             background-color: transparent;
-            padding: 10px 15px;
-            font-size: 1rem;
+            padding: 8px 15px;
+            font-size: 0.9rem;
             font-weight: bold;
             border: 1px solid var(--border-color);
             cursor: pointer;
@@ -94,7 +98,7 @@
         .dropdown:hover .dropbtn {
             background-color: var(--accent-red);
             color: #ffffff;
-            box-shadow: var(--glow);
+            box-shadow: 0 0 10px var(--accent-red);
             border-color: var(--accent-red);
         }
         .dropdown-content {
@@ -102,7 +106,7 @@
             position: absolute;
             right: 0;
             background-color: var(--bg-panel);
-            min-width: 220px;
+            min-width: 200px;
             border: 1px solid var(--border-color);
             border-top: none;
             box-shadow: 0 8px 16px rgba(0,0,0,0.8);
@@ -119,7 +123,7 @@
             width: 100%;
             text-align: left;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
             cursor: pointer;
             transition: background 0.2s, padding-left 0.2s, color 0.2s;
@@ -131,54 +135,54 @@
         }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* Header */
         header { 
-            background: radial-gradient(circle at center, var(--accent-dark) 0%, var(--bg-base) 70%);
-            padding: 5rem 2rem; 
+            background: radial-gradient(circle at center, rgba(102, 0, 24, 0.3) 0%, transparent 70%);
+            padding: 6rem 2rem; 
             text-align: center; 
             border-bottom: 1px solid var(--border-color); 
         }
-        header h1 { font-size: 3rem; text-shadow: 2px 2px 0px var(--accent-red); }
-        header p { font-size: 1.2rem; color: var(--text-muted); font-weight: bold; }
+        header h1 { font-size: 3.5rem; text-shadow: 2px 2px 0px rgba(255,0,60,0.3); margin-bottom: 10px; }
+        header p { font-size: 1.2rem; color: var(--text-muted); font-family: 'Courier New', Courier, monospace; }
         
-        /* Container & Sharp Cards */
         .container { max-width: 850px; margin: auto; padding: 3rem 2rem; }
         .card { 
             background: var(--bg-panel); 
             padding: 2rem; 
             margin-bottom: 2rem; 
-            border: 1px solid var(--border-color);
-            border-left: 5px solid var(--accent-red); 
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.3s;
-            box-shadow: var(--glow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent-red); 
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
         .card:hover { 
-            transform: translateX(10px); 
+            transform: translateY(-5px);
             border-color: var(--accent-red);
+            box-shadow: 0 10px 20px rgba(255, 0, 60, 0.15), inset 0 0 15px rgba(255, 0, 60, 0.05);
         }
+        body.light-mode .card { border-color: rgba(0,0,0,0.1); border-left-color: var(--accent-red); }
+        body.light-mode .card:hover { border-color: var(--accent-red); box-shadow: 8px 8px 0px rgba(0,0,0,0.15); transform: translate(-4px, -4px); }
         
-        /* Typography & Badges */
-        .price-tag { color: var(--accent-red); font-weight: bold; font-size: 1.1rem; }
+        .price-tag { color: var(--accent-red); font-weight: bold; font-size: 1rem; margin-bottom: 5px; }
         .tech { font-size: 0.85rem; color: var(--text-muted); font-family: 'Courier New', Courier, monospace; margin-top: 15px; font-weight: bold; }
         .badge {
             background: rgba(255, 0, 60, 0.1);
             border: 1px solid var(--accent-red);
             color: var(--accent-red);
-            padding: 2px 8px;
-            font-size: 0.8rem;
+            padding: 4px 10px;
+            font-size: 0.75rem;
             vertical-align: middle;
             margin-left: 10px;
             font-weight: bold;
             font-family: 'Courier New', Courier, monospace;
+            border-radius: 2px;
         }
         
-        /* Progress Bars */
-        .skill-group { margin-bottom: 15px; }
-        .skill-header { display: flex; justify-content: space-between; font-family: 'Courier New', Courier, monospace; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
-        .skill-track { width: 100%; background-color: var(--bg-base); border: 1px solid var(--border-color); height: 12px; position: relative; }
-        .skill-fill { background-color: var(--accent-red); height: 100%; box-shadow: var(--glow); transition: width 1s ease-in-out; width: 0; } /* Starts at 0 for animation */
+        .skill-group { margin-bottom: 20px; }
+        .skill-header { display: flex; justify-content: space-between; font-family: 'Courier New', Courier, monospace; font-weight: bold; margin-bottom: 8px; font-size: 0.9rem; }
+        .skill-track { width: 100%; background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); height: 8px; position: relative; border-radius: 4px; overflow: hidden; }
+        body.light-mode .skill-track { background-color: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
+        .skill-fill { background-color: var(--accent-red); height: 100%; box-shadow: 0 0 10px var(--accent-red); transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); width: 0; } 
 
-        /* Buttons */
         .btn { 
             display: inline-block; 
             background: var(--accent-red); 
@@ -191,16 +195,17 @@
             letter-spacing: 1px;
             transition: all 0.2s;
             border: 1px solid var(--accent-red);
+            border-radius: 2px;
         }
         .btn:hover { 
             background: transparent; 
             color: var(--accent-red);
-            box-shadow: inset 0 0 15px var(--accent-dark); 
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.3); 
         }
         .btn-outline {
             background: transparent;
             color: var(--text-main);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--text-muted);
         }
         .btn-outline:hover { 
             border-color: var(--accent-red); 
@@ -208,23 +213,24 @@
             box-shadow: none;
         }
 
-        /* Utility */
         .highlight { color: var(--accent-red); }
+        h2 { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 2rem; }
+        body.light-mode h2 { border-bottom-color: rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="nav-container">
-        <div class="brand">SYS.TABL_</div>
+        <div class="brand">TABL<span>.DEV</span></div>
         <div class="dropdown">
-            <button class="dropbtn">MENU_ ▼</button>
+            <button class="dropbtn">MENU ▼</button>
             <div class="dropdown-content">
-                <a href="#services">>> SERVICES</a>
-                <a href="#skills">>> CAPABILITIES</a>
-                <a href="#work">>> DEPLOYMENTS</a>
-                <a href="#contact">>> CONTACT</a>
-                <button id="themeToggle">>> LIGHT_MODE</button>
+                <a href="#services">SERVICES</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#work">RECENT WORK</a>
+                <a href="#contact">CONTACT</a>
+                <button id="themeToggle">LIGHT MODE</button>
             </div>
         </div>
     </div>
@@ -232,112 +238,102 @@
 
 <header>
     <h1>TABL <span class="highlight">//</span> DEV</h1>
-    <p>EXECUTING: Custom Discord Bots | Web Dashboards | Minecraft Plugins</p>
+    <p>Specializing in Python Programming, Web Dashboards & Minecraft Data Packs</p>
 </header>
 
 <div class="container">
-    <h2 id="services">_ACTIVE_SERVICES</h2>
+    <h2 id="services">Services</h2>
     
     <div class="card">
-        <h3>Discord Bot Development</h3>
-        <p>Custom bots built exactly to your server's specifications. From advanced moderation suites to complex economy systems and API integrations.</p>
-        <p class="price-tag">STARTING_AT: £15 per project</p>
-        <p class="tech">[ TECH_STACK: Node.js, Discord.js, Python, Discord.py ]</p>
+        <h3>Python Programming</h3>
+        <p>General-purpose automation, data processing scripts, and custom software solutions tailored to your workflow. Focused on clean, efficient, and readable code.</p>
+        <p class="price-tag">Starting at £15 per project</p>
+        <p class="tech">Stack: Python 3.x, Pandas, NumPy, Selenium, Requests</p>
     </div>
 
     <div class="card">
-        <h3>Minecraft Plugins</h3>
-        <p>Custom server features, SMP enhancements, custom items, and unique mechanics to dominate the server list.</p>
-        <p class="price-tag">STARTING_AT: £15 per project</p>
-        <p class="tech">[ TECH_STACK: Java, Spigot / Paper API ]</p>
+        <h3>Minecraft Data Packs</h3>
+        <p>Custom world mechanics, advanced loot tables, unique crafting recipes, and technical functions to overhaul gameplay without the need for server-side plugins.</p>
+        <p class="price-tag">Starting at £15 per project</p>
+        <p class="tech">Stack: mcfunction, JSON, NBT, Worldgen</p>
     </div>
 
     <div class="card">
         <h3>Web Dashboards & Interfaces</h3>
-        <p>Control panels for your bots or sharp, highly-responsive landing pages for your projects and gaming communities.</p>
-        <p class="price-tag">HOURLY_RATE: £5 p/h</p>
-        <p class="tech">[ TECH_STACK: HTML, CSS, JavaScript, Python (Flask/FastAPI) ]</p>
+        <p>Control panels for your applications or sharp, highly-responsive landing pages for your projects and gaming communities.</p>
+        <p class="price-tag">Hourly Rate: £5 p/h</p>
+        <p class="tech">Stack: HTML, CSS, JavaScript, Python (Flask/FastAPI)</p>
     </div>
 
-    <h2 id="skills" style="margin-top: 3rem;">_CAPABILITIES</h2>
+    <h2 id="skills" style="margin-top: 4rem;">Technical Skills</h2>
     <div class="card" style="border-left-width: 2px;">
         
+        <div class="skill-group" data-skill="85">
+            <div class="skill-header"><span>PYTHON</span> <span class="skill-percent"></span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+        </div>
+
         <div class="skill-group" data-skill="45">
-            <div class="skill-header"><span>> NODE.JS / JAVASCRIPT</span> <span class="skill-percent"></span></div>
+            <div class="skill-header"><span>NODE.JS / JAVASCRIPT</span> <span class="skill-percent"></span></div>
             <div class="skill-track"><div class="skill-fill"></div></div>
         </div>
         
-        <div class="skill-group" data-skill="65">
-            <div class="skill-header"><span>> PYTHON</span> <span class="skill-percent"></span></div>
-            <div class="skill-track"><div class="skill-fill"></div></div>
-        </div>
-        
-        <div class="skill-group" data-skill="30">
-            <div class="skill-header"><span>> JAVA (SPIGOT API)</span> <span class="skill-percent"></span></div>
+        <div class="skill-group" data-skill="50">
+            <div class="skill-header"><span>MINECRAFT DATA PACKS</span> <span class="skill-percent"></span></div>
             <div class="skill-track"><div class="skill-fill"></div></div>
         </div>
         
         <div class="skill-group" data-skill="60">
-            <div class="skill-header"><span>> HTML / CSS</span> <span class="skill-percent"></span></div>
+            <div class="skill-header"><span>HTML / CSS</span> <span class="skill-percent"></span></div>
             <div class="skill-track"><div class="skill-fill"></div></div>
         </div>
 
     </div>
 
-    <h2 id="work" style="margin-top: 3rem;">_RECENT_WORK</h2>
+    <h2 id="work" style="margin-top: 4rem;">Recent Work</h2>
     <div class="card">
-        <h3>PROJECT: [ INSERT_NAME_HERE ] <span class="badge">[ STATUS ]</span></h3>
-        <p>[ Insert a brief description of your project here. What did it do? Who was it for? What problems did it solve? ]</p>
-        <p class="tech">[ CLASSIFICATION: INSERT_LANGUAGES_OR_TOOLS_USED ]</p>
-        <div style="margin-top: 15px;">
-            <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;">VIEW_SOURCE</a>
+        <h3>[ Magic Data Pack ] <span class="badge">In Progress</span></h3>
+        <p>[ A data pack containing 15 magical abilities using magic stones ]</p>
+        <p class="tech">Stack: [ JSON ]</p>
+        <div style="margin-top: 20px;">
         </div>
     </div>
 
-    <h2 id="contact" style="margin-top: 3rem;">_COMMUNICATIONS</h2>
-    <div class="card" style="border-left: none; border-top: 5px solid var(--accent-red); text-align: center;">
-        <p>Ready to start? Ping me directly on the network:</p>
+    <h2 id="contact" style="margin-top: 4rem;">Contact</h2>
+    <div class="card" style="border-left: none; border-top: 4px solid var(--accent-red); text-align: center;">
+        <p>Looking for a custom script or website? Let's discuss your project.</p>
         
-        <h2 class="highlight" style="font-size: 2.5rem; margin: 10px 0;">@tabl01</h2>
-        <p style="color: var(--text-muted); font-weight: bold;">EMAIL: your.email@example.com</p>
+        <h2 class="highlight" style="font-size: 2.5rem; margin: 15px 0; border: none;">@tabl01</h2>
         
         <div style="margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-            <a href="https://discord.gg/UJgWSCrJqf" class="btn" target="_blank">JOIN_SERVER</a>
-            <a href="tabl01.developer@gmail.com" class="btn btn-outline">CONTACT_ME</a>
+            <a href="https://discord.gg/UJgWSCrJqf" class="btn" target="_blank">Join Discord</a>
+            <a href="mailto:tabl01.developer@gmail.com" class="btn btn-outline">Email Me</a>
         </div>
     </div>
 </div>
 
 <script>
-    // Light/Dark Mode Toggle
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('light-mode');
         
         if (document.body.classList.contains('light-mode')) {
-            themeToggle.innerText = ">> DARK_MODE";
+            themeToggle.innerText = "DARK MODE";
         } else {
-            themeToggle.innerText = ">> LIGHT_MODE";
+            themeToggle.innerText = "LIGHT MODE";
         }
     });
 
-    // Auto-Calculate Progress Bars
-    // This script reads the data-skill attribute and fills out the text and bar width automatically
     document.addEventListener("DOMContentLoaded", () => {
         const skills = document.querySelectorAll('.skill-group');
         
-        // Add a tiny delay so the bars animate in on load (looks much cooler)
         setTimeout(() => {
             skills.forEach(skill => {
                 const percent = skill.getAttribute('data-skill');
-                
-                // Inject the text (e.g., "90%")
                 skill.querySelector('.skill-percent').innerText = percent + '%';
-                
-                // Set the width of the red bar
                 skill.querySelector('.skill-fill').style.width = percent + '%';
             });
-        }, 100);
+        }, 150);
     });
 </script>
 
